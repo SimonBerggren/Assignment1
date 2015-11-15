@@ -1,0 +1,9 @@
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\bin\Debug\Asssignment1.exe.config
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\bin\Debug\Asssignment1.exe
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\bin\Debug\Asssignment1.pdb
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.csprojResolveAssemblyReference.cache
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.Form1.resources
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.Properties.Resources.resources
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.csproj.GenerateResource.Cache
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.exe
+c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.pdb
