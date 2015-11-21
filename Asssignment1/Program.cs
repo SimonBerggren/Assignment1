@@ -3,6 +3,10 @@ using System.Windows.Forms;
 
 namespace Asssignment1
 {
+    /// <summary>
+    /// Simon Berggren - TGSPA14h
+    /// Main thread is started here
+    /// </summary>
     static class Program
     {
         [STAThread]
@@ -10,7 +14,7 @@ namespace Asssignment1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new DefaultForm());
         }
     }
 }

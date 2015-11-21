@@ -7,3 +7,12 @@ c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\o
 c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.csproj.GenerateResource.Cache
 c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.exe
 c:\users\simon\documents\visual studio 2015\Projects\Asssignment1\Asssignment1\obj\Debug\Asssignment1.pdb
+D:\Git\Assignment1\Asssignment1\bin\Debug\Asssignment1.exe.config
+D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.exe
+D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.pdb
+D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.csprojResolveAssemblyReference.cache
+D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.Properties.Resources.resources
+D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.csproj.GenerateResource.Cache
+D:\Git\Assignment1\Asssignment1\bin\Debug\Asssignment1.exe
+D:\Git\Assignment1\Asssignment1\bin\Debug\Asssignment1.pdb
+D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.DefaultForm.resources

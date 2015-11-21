@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Asssignment1
 {
-    public partial class Form1 : Form
+    public partial class DefaultForm : Form
     {
         private MusicPlayer music;
         private Random random;
@@ -24,7 +18,7 @@ namespace Asssignment1
         private volatile bool labelShowing;
         private volatile bool iconShowing;
 
-        public Form1()
+        public DefaultForm()
         {
             InitializeComponent();
 
@@ -52,7 +46,10 @@ namespace Asssignment1
             {
                 while (labelShowing)
                 {
-                    SetLocation(new Point(random.Next(0, 200), random.Next(300, 400)));
+                    int randX = random.Next(LabelPanel.Left, LabelPanel.Right - label.Width);
+                    int randY = random.Next(LabelPanel.Top + (label.Height / 2), LabelPanel.Bottom - (label.Height / 2));
+
+                    SetLocation(new Point(randX, randY));
                     Thread.Sleep(1000);
                 }
             }
@@ -66,21 +63,21 @@ namespace Asssignment1
 
         private void SetLocation(Point newLocation)
         {
-            if (label1.InvokeRequired)
+            if (label.InvokeRequired)
             {
                 SetLocationCallback cb = new SetLocationCallback(SetLocation);
                 Invoke(cb, new object[] { newLocation });
             }
             else
             {
-                label1.Location = newLocation;
-                label1.Visible = true;
+                label.Location = newLocation;
+                label.Visible = true;
             }
         }
 
         private void StopDrawingLabelButton_Click(object sender, EventArgs e)
         {
-            label1.Visible = false;
+            label.Visible = false;
             labelShowing = false;
         }
         #endregion
@@ -103,7 +100,13 @@ namespace Asssignment1
                 Graphics graphics = CreateGraphics();
                 graphics.Clip = new Region(new RectangleF(IconPanel.Left, IconPanel.Top, IconPanel.Width, IconPanel.Height));
 
-                Rectangle rect = new Rectangle(IconPanel.Left + (IconPanel.Width / 4), IconPanel.Top + (IconPanel.Height / 4), IconPanel.Width / 2, IconPanel.Height / 2);
+                // Rectangle position and size 
+                int x = IconPanel.Left + (IconPanel.Width / 4);
+                int y = IconPanel.Top + (IconPanel.Height / 4);
+                int width = IconPanel.Width / 2;
+                int height = IconPanel.Height / 2;
+
+                Rectangle rect = new Rectangle(x, y, width, height);
 
                 while (iconShowing)
                 {
@@ -114,10 +117,11 @@ namespace Asssignment1
                     mat.RotateAt(1.0f, new PointF(IconPanel.Left + IconPanel.Width / 2, IconPanel.Top + IconPanel.Height / 2));
                     graphics.Transform = mat;
 
-                    Thread.Sleep(50);
+                    Thread.Sleep(10);
                 }
 
                 graphics.Clear(BackColor);
+
             }
             catch (Exception e)
             {
@@ -132,27 +136,60 @@ namespace Asssignment1
         #endregion
 
         #region Music Player
-        private void FileDialog_FileOk(object sender, CancelEventArgs e)
-        {
-            music.Open(FileDialog.FileName);
-            CurrentSongText.Text = FileDialog.SafeFileName;
-        }
-
         private void OpenSongButton_Click(object sender, EventArgs e)
         {
             FileDialog.ShowDialog();
         }
 
+        private void FileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            music.Open(FileDialog.FileName);
+            CurrentSongLabel.Text = FileDialog.SafeFileName;
+            music.PlayFromStart();
+
+            ResumeMusicButton.Enabled = false;
+            StopSongButton.Enabled = true;
+            PlaySongButton.Enabled = true;
+        }
+
         private void PlaySongButton_Click(object sender, EventArgs e)
         {
-            music.Play();
+            music.PlayFromStart();
+
+            ResumeMusicButton.Enabled = false;
+            StopSongButton.Enabled = true;
+        }
+
+        private void ResumeMusicButton_Click(object sender, EventArgs e)
+        {
+            music.Resume();
+            ResumeMusicButton.Enabled = false;
+            StopSongButton.Enabled = true;
         }
 
         private void StopSongButton_Click(object sender, EventArgs e)
         {
             music.Stop();
-            CurrentSongText.Text = "";
+            ResumeMusicButton.Enabled = true;
+            StopSongButton.Enabled = false;
         }
         #endregion
+
+        private void DefaultForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (labelShowing)
+            {
+                labelShowing = false;
+                labelThread.Join();
+            }
+
+            if (iconShowing)
+            {
+                iconShowing = false;
+                iconThread.Join();
+            }
+
+            music.Close();
+        }
     }
 }
