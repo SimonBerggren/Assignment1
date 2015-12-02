@@ -16,3 +16,12 @@ D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.csproj.GenerateResource.C
 D:\Git\Assignment1\Asssignment1\bin\Debug\Asssignment1.exe
 D:\Git\Assignment1\Asssignment1\bin\Debug\Asssignment1.pdb
 D:\Git\Assignment1\Asssignment1\obj\Debug\Asssignment1.DefaultForm.resources
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\bin\Debug\Asssignment1.exe.config
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.exe
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.pdb
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\bin\Debug\Asssignment1.exe
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\bin\Debug\Asssignment1.pdb
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.csprojResolveAssemblyReference.cache
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.DefaultForm.resources
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.Properties.Resources.resources
+C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.csproj.GenerateResource.Cache

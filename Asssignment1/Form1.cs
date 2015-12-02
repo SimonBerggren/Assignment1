@@ -7,6 +7,11 @@ using System.Windows.Forms;
 
 namespace Asssignment1
 {
+    /// <summary>
+    /// Simon Berggren - TGSPA14h
+    /// Musicplayer application
+    /// Main form
+    /// </summary>
     public partial class DefaultForm : Form
     {
         private MusicPlayer music;
@@ -18,6 +23,9 @@ namespace Asssignment1
         private volatile bool labelShowing;
         private volatile bool iconShowing;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public DefaultForm()
         {
             InitializeComponent();
@@ -30,6 +38,9 @@ namespace Asssignment1
         }
 
         #region Draw Label
+        /// <summary>
+        /// Starts another thread which places a label randomly
+        /// </summary>
         private void StartDrawingLabelButton_Click(object sender, EventArgs e)
         {
             if (!labelShowing)
@@ -40,6 +51,9 @@ namespace Asssignment1
             }
         }
 
+        /// <summary>
+        /// Changes location of label
+        /// </summary>
         private void UpdateLabelLocation()
         {
             try
@@ -58,9 +72,13 @@ namespace Asssignment1
                 MessageBox.Show(e.Message);
             }
         }
-
+        
         private delegate void SetLocationCallback(Point newLocation);
 
+        /// <summary>
+        /// Where to set the new location of the label
+        /// </summary>
+        /// <param name="newLocation">Location relative to window</param>
         private void SetLocation(Point newLocation)
         {
             if (label.InvokeRequired)
@@ -75,6 +93,9 @@ namespace Asssignment1
             }
         }
 
+        /// <summary>
+        /// Ends the labelthread and stops drawing the label
+        /// </summary>
         private void StopDrawingLabelButton_Click(object sender, EventArgs e)
         {
             label.Visible = false;
@@ -83,6 +104,9 @@ namespace Asssignment1
         #endregion
 
         #region DrawIcon
+        /// <summary>
+        /// Starts another thread which draws a square
+        /// </summary>
         private void StartDrawingIconButton_Click(object sender, EventArgs e)
         {
             if (!iconShowing)
@@ -93,6 +117,9 @@ namespace Asssignment1
             }
         }
 
+        /// <summary>
+        /// Draws and rotates the square
+        /// </summary>
         private void DrawIcon()
         {
             try
@@ -129,6 +156,9 @@ namespace Asssignment1
             }
         }
 
+        /// <summary>
+        /// Stops drawing the square and ends the thread
+        /// </summary>
         private void StopDrawingIconButton_Click(object sender, EventArgs e)
         {
             iconShowing = false;
@@ -136,11 +166,17 @@ namespace Asssignment1
         #endregion
 
         #region Music Player
+        /// <summary>
+        /// Shows a dialog to find a song to play
+        /// </summary>
         private void OpenSongButton_Click(object sender, EventArgs e)
         {
             FileDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// If an mp3 or wav file is found, we load it and enable the user to play the song
+        /// </summary>
         private void FileDialog_FileOk(object sender, CancelEventArgs e)
         {
             music.Open(FileDialog.FileName);
@@ -152,6 +188,9 @@ namespace Asssignment1
             PlaySongButton.Enabled = true;
         }
 
+        /// <summary>
+        /// Plays currently loaded song
+        /// </summary>
         private void PlaySongButton_Click(object sender, EventArgs e)
         {
             music.PlayFromStart();
@@ -160,6 +199,9 @@ namespace Asssignment1
             StopSongButton.Enabled = true;
         }
 
+        /// <summary>
+        /// Resumes currently loaded song
+        /// </summary>
         private void ResumeMusicButton_Click(object sender, EventArgs e)
         {
             music.Resume();
@@ -167,6 +209,9 @@ namespace Asssignment1
             StopSongButton.Enabled = true;
         }
 
+        /// <summary>
+        /// Stops currently loaded song
+        /// </summary>
         private void StopSongButton_Click(object sender, EventArgs e)
         {
             music.Stop();
@@ -175,6 +220,10 @@ namespace Asssignment1
         }
         #endregion
 
+        /// <summary>
+        /// Called when form is closing
+        /// Makes sure all threads are terminated before we close the application
+        /// </summary>
         private void DefaultForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (labelShowing)
