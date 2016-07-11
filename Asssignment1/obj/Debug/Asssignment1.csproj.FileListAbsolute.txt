@@ -25,3 +25,6 @@ C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.cs
 C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.DefaultForm.resources
 C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.Properties.Resources.resources
 C:\Users\Simon\Desktop\Simon\Assignment 1\Asssignment1\obj\Debug\Asssignment1.csproj.GenerateResource.Cache
+D:\Git\A1\Asssignment1\bin\Debug\Asssignment1.exe.config
+D:\Git\A1\Asssignment1\obj\Debug\Asssignment1.exe
+D:\Git\A1\Asssignment1\obj\Debug\Asssignment1.pdb
